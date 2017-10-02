@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员后台index</title>
+</head>
+<body>
+<span ><small>欢迎光临,</small> {$_SESSION['user']['username']}</span>
+
+<ul ><li><a href="{:U('Home/Index/logout')}">退出</a></li></ul>
+
+    <foreach name="nav_data" item="v">
+        <empty name="v['_data']">
+            <li >
+            <a href="{:U($v['mca'])}">
+                <span >{$v['name']}</span>
+            </a>
+            </li>
+        <else/>
+             <li >
+                <a href="#" >
+                    <span class="menu-text">{$v['name']}</span>
+                </a>
+                <ul >
+                    <foreach name="v['_data']" item="n">
+                        <li  <if condition="(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME) eq $n['mca']">active</if>"><a href="{:U($n['mca'])}">{$n['name']}</a>
+                        </li>
+                    </foreach>
+                </ul>
+             </li>
+        </empty>
+    </foreach>
+
+</body>
+</html>
