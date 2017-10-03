@@ -28,6 +28,7 @@ class AdminBaseController extends BaseController {
             'nav_data'=>$nav_data
         );
         $this->assign($assign);
-
+//        var_dump($nav_data);
+//        exit;
     }
 }

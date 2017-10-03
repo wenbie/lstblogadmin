@@ -50,6 +50,7 @@ class AdminNavModel extends BaseModel {
 //            var_dump($data);
 //            exit;
         }elseif($type=='level') {
+            $data = \Org\Nx\Data::channelLevel($data,0,'&nbsp;','id');
             //显示有权限的菜单
             $auth = new \Think\Auth();
 //            var_dump($data);
